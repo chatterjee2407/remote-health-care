@@ -32,13 +32,25 @@ const MeetingSetup = ({setIsSetupComplete}: {
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
 
   useEffect(() => {
-    if (isMicCamToggled) {
-      call.camera.disable();
-      call.microphone.disable();
-    } else {
-      call.camera.enable();
-      call.microphone.enable();
-    }
+    const initializeDevices = async () => {
+      try {
+        // Request permissions first
+        await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        
+        if (isMicCamToggled) {
+          await call.camera.disable();
+          await call.microphone.disable();
+        } else {
+          await call.camera.enable();
+          await call.microphone.enable();
+        }
+      } catch (error) {
+        console.error('Error initializing devices:', error);
+        // Handle error appropriately
+      }
+    };
+
+    initializeDevices();
   }, [isMicCamToggled, call.camera, call.microphone]);
 
   return (

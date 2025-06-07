@@ -11,11 +11,11 @@ const Navbar = () => {
           src="public/icons/logo.svg"
           width={32}
           height={32}
-          alt="yoom logo"
+          alt="Saviour"
           className="max-sm:size-10"
         />
         <p className="text-[26px] font-extrabold text-white max-sm:hidden">
-          YOOM
+          Saviour
         </p>
       </Link>
 
