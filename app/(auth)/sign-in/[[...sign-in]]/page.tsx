@@ -1,12 +1,25 @@
-import { SignIn } from '@clerk/nextjs'
-import React from 'react'
+'use client';
+import dynamic from 'next/dynamic';
+import React from 'react';
 
-const SignInPage = () => {
+// Dynamically import Clerk's SignIn component to avoid SSR mismatches
+const SignIn = dynamic(
+  () => import('@clerk/nextjs').then((mod) => mod.SignIn),
+  { ssr: false }
+);
+
+const SignInPage: React.FC = () => {
+  // Determine redirect URL after sign-in
+  const redirectUrl =
+    typeof window !== 'undefined'
+      ? window.location.origin + '/'
+      : undefined;
+
   return (
     <main className="flex h-screen w-full items-center justify-center">
-    <SignIn />
-  </main>
-  )
-}
+      <SignIn redirectUrl={redirectUrl} />
+    </main>
+  );
+};
 
-export default SignInPage
+export default SignInPage;
