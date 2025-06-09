@@ -85,20 +85,41 @@ const HelpSupportPage: React.FC = () => (
       <h2 style={styles.subHeader}>Troubleshooting Guides</h2>
       <article style={styles.subSection}>
         <h3>Video Call Issues</h3>
-        <ul style={styles.list}>
-          <li style={styles.listItem}><strong>Permissions:</strong> Step-by-step for Chrome, Safari, and mobile.</li>
-          <li style={styles.listItem}><strong>Poor Connection:</strong> Switch networks, close other apps, or use Ethernet.</li>
-          <li style={styles.listItem}><strong>Error Codes:</strong></li>
-        </ul>
-        <table style={styles.table}>
-          <thead>
-            <tr><th>Code</th><th>Issue</th><th>Solution</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>403</td><td>Permission denied</td><td>Re-login and re-authorize camera/mic</td></tr>
-            <tr><td>500</td><td>Server error</td><td>Retry or contact support</td></tr>
-          </tbody>
-        </table>
+        <div style={{ overflowX: 'auto', margin: '16px 0' }}>
+          <table style={{
+            width: '100%',
+            borderCollapse: 'collapse',
+            backgroundColor: '#2d3748',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            tableLayout: 'fixed'
+          }}>
+            <colgroup>
+              <col style={{ width: '15%' }} />
+              <col style={{ width: '30%' }} />
+              <col style={{ width: '55%' }} />
+            </colgroup>
+            <thead>
+              <tr style={{ backgroundColor: '#4a5568' }}>
+                <th style={{ ...styles.tableHeader, textAlign: 'center' }}>Code</th>
+                <th style={styles.tableHeader}>Issue</th>
+                <th style={styles.tableHeader}>Solution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={styles.tableRow}>
+                <td style={{ ...styles.tableCell, textAlign: 'center' }}>403</td>
+                <td style={styles.tableCell}>Permission denied</td>
+                <td style={styles.tableCell}>Re-login and re-authorize camera/mic</td>
+              </tr>
+              <tr style={{ ...styles.tableRow, backgroundColor: '#374151' }}>
+                <td style={{ ...styles.tableCell, textAlign: 'center' }}>500</td>
+                <td style={styles.tableCell}>Server error</td>
+                <td style={styles.tableCell}>Retry or contact support</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </article>
 
       <article style={styles.subSection}>
@@ -118,22 +139,24 @@ const HelpSupportPage: React.FC = () => (
     </section>
 
     {/* 4. Contact & Escalation Paths */}
-    <section id="contact" style={{ ...styles.section, ...styles.highlight }}>
-      <h2 style={styles.subHeader}>Contact & Escalation Paths</h2>
-      <article style={styles.subSection}>
-        <h3>Live Chat</h3>
-        <p>Mon–Fri, 8 AM–8 PM ET via the chat widget or “Chat Now” button.</p>
-      </article>
-      <article style={styles.subSection}>
-        <h3>Phone & Email</h3>
-        <p>Toll-free: 1-800-HEALTH (Mon–Fri, 8 AM–8 PM ET)</p>
-        <p>Email: <a href="mailto:support@yourhealthapp.com">support@yourhealthapp.com</a> (response within 4 hours)</p>
-      </article>
-      <article style={styles.subSection}>
-        <h3>Emergency Instructions</h3>
-        <p>This platform is <strong>not</strong> for emergencies. Call <a href="tel:911">911</a> or your local emergency number.</p>
-        <p>Alternate urgent care: 24/7 nurse line at 1-800-NURSE.</p>
-      </article>
+    <section id="contact" style={{ ...styles.section, backgroundColor: '#f8f9fa', padding: '24px', borderRadius: '8px', margin: '24px 0' }}>
+      <h2 style={{ ...styles.subHeader, color: '#1a202c', marginTop: 0 }}>Contact & Escalation Paths</h2>
+      <div style={{ display: 'grid', gap: '20px' }}>
+        <article style={{ ...styles.subSection, color: '#4a5568', margin: 0, padding: '16px', backgroundColor: 'white', borderRadius: '6px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+          <h3 style={{ color: '#1a202c', marginTop: 0, marginBottom: '8px' }}>Live Chat</h3>
+          <p style={{ margin: 0 }}>Mon–Fri, 8 AM–8 PM ET via the chat widget or &quot;Chat Now&quot; button.</p>
+        </article>
+        <article style={{ ...styles.subSection, color: '#4a5568', margin: 0, padding: '16px', backgroundColor: 'white', borderRadius: '6px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+          <h3 style={{ color: '#1a202c', marginTop: 0, marginBottom: '8px' }}>Phone & Email</h3>
+          <p style={{ margin: '8px 0' }}>Toll-free: 1-800-HEALTH (Mon–Fri, 8 AM–8 PM ET)</p>
+          <p style={{ margin: '8px 0 0 0' }}>Email: <a href="mailto:support@yourhealthapp.com" style={{ color: '#3182ce', textDecoration: 'none' }}>support@yourhealthapp.com</a> (response within 4 hours)</p>
+        </article>
+        <article style={{ ...styles.subSection, color: '#4a5568', margin: 0, padding: '16px', backgroundColor: 'white', borderRadius: '6px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+          <h3 style={{ color: '#1a202c', marginTop: 0, marginBottom: '8px' }}>Emergency Instructions</h3>
+          <p style={{ margin: '8px 0' }}>This platform is <strong>not</strong> for emergencies. Call <a href="tel:911" style={{ color: '#3182ce', textDecoration: 'none' }}>911</a> or your local emergency number.</p>
+          <p style={{ margin: '8px 0 0 0' }}>Alternate urgent care: 24/7 nurse line at 1-800-NURSE.</p>
+        </article>
+      </div>
     </section>
 
     {/* 5. User Guides & Video Tutorials */}
@@ -173,24 +196,38 @@ const HelpSupportPage: React.FC = () => (
 );
 
 const styles: Record<string, React.CSSProperties> = {
-  container: { padding: '20px', fontFamily: 'Arial, sans-serif', color: '#333' },
+  container: { padding: '20px', fontFamily: 'Arial, sans-serif', color: 'white', backgroundColor: '#2d3748' },
   section: { marginBottom: '40px' },
-  header: { fontSize: '2rem', borderBottom: '2px solid #eee', paddingBottom: '10px', marginBottom: '20px', color: '#1a202c' },
-  subHeader: { fontSize: '1.5rem', marginBottom: '15px', color: '#2d3748' },
-  paragraph: { fontSize: '1rem', lineHeight: '1.5', marginBottom: '15px', color: '#4a5568' },
+  header: { fontSize: '2rem', borderBottom: '2px solid #4a5568', paddingBottom: '10px', marginBottom: '20px', color: 'white' },
+  subHeader: { fontSize: '1.5rem', marginBottom: '15px', color: 'white' },
+  paragraph: { fontSize: '1rem', lineHeight: '1.5', marginBottom: '15px', color: 'white' },
   quickLinks: { display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '20px' },
   link: { textDecoration: 'none', color: '#3182ce', fontWeight: 500 },
   accordionContainer: { display: 'grid', gap: '10px' },
-  accordionItem: { border: '1px solid #e2e8f0', borderRadius: '4px', overflow: 'hidden' },
-  summaryButton: { width: '100%', textAlign: 'left', padding: '10px', background: '#f7fafc', border: 'none', cursor: 'pointer', fontWeight: 600 },
-  list: { paddingLeft: '20px', listStyleType: 'disc', margin: 0 },
-  listItem: { marginBottom: '8px', color: '#4a5568' },
+  accordionItem: { marginBottom: '10px', border: '1px solid #4a5568', borderRadius: '8px', overflow: 'hidden' },
+  summaryButton: {
+    width: '100%',
+    padding: '15px',
+    textAlign: 'left',
+    background: '#2d3748',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '1rem',
+    fontWeight: 600,
+    color: 'white',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  list: { padding: '0 15px 15px 15px', margin: 0, listStyle: 'none' },
+  listItem: { padding: '10px 0', borderBottom: '1px solid #4a5568', color: 'white' },
+  listItemLast: { padding: '10px 0', borderBottom: 'none', color: 'white' },
   subSection: { marginTop: '20px' },
   table: { width: '100%', borderCollapse: 'collapse', marginTop: '10px', marginBottom: '10px' },
   highlight: { backgroundColor: '#feebc8', padding: '20px', borderRadius: '6px' },
   button: { backgroundColor: '#3182ce', color: '#fff', padding: '10px 20px', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 600 },
   thumbs: { display: 'flex', gap: '10px', marginTop: '10px' },
-  thumbButton: { background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer' }
+  thumbButton: { background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer', color: 'white' }
 };
 
 export default HelpSupportPage;

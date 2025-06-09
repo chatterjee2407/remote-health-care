@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Sidebar() {
   return (
-    <section className="h-screen w-64 bg-gray-900 text-white flex flex-col">
+    <section className="h-screen w-64 bg-[#1C1F2E] text-white flex flex-col border-r border-gray-700">
       <div className="p-4 text-2xl font-bold border-b border-gray-700">
         Saviour
       </div>

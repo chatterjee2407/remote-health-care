@@ -120,11 +120,6 @@ export const sidebarLinks = [
     route: '/settings',
     label: 'Settings',
   },
-  {
-    icon: PlusCircle,
-    route: '/personal-room',
-    label: 'Personal Room',
-  },
 ];
 
 
