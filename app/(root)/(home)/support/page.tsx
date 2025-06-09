@@ -1,4 +1,8 @@
+'use client';
+
 import React from 'react';
+
+
 
 const HelpSupportPage: React.FC = () => (
   <div style={styles.container}>
