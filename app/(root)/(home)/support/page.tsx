@@ -108,7 +108,7 @@ const HelpSupportPage: React.FC = () => (
       <h2 style={{ ...styles.subHeader, color: '#2d3748' }}>Contact & Escalation Paths</h2>
       <article style={styles.subSection} id="live-chat">
         <h3 style={{ color: '#2d3748' }}>Live Chat</h3>
-        <p>Mon–Fri, 8 AM–8 PM ET via the chat widget or "Chat Now" button.</p>
+        <p>Mon–Fri, 8 AM–8 PM ET via the chat widget or &quot;Chat Now&quot; button.</p>
       </article>
       <article style={styles.subSection}>
         <h3 style={{ color: '#2d3748' }}>Phone & Email</h3>
@@ -126,9 +126,9 @@ const HelpSupportPage: React.FC = () => (
     <section style={styles.section}>
       <h2 style={{ ...styles.subHeader, color: '#ffffff' }}>User Guides & Video Tutorials</h2>
       <ul style={styles.list}>
-        <li>"How to Book a Visit" – Article</li>
-        <li>"Navigating Your Dashboard" – Article</li>
-        <li>"Uploading Documents & Images" – Article</li>
+        <li>&quot;How to Book a Visit&quot; – Article</li>
+        <li>&quot;Navigating Your Dashboard&quot; – Article</li>
+        <li>&quot;Uploading Documents & Images&quot; – Article</li>
       </ul>
       <p style={{ color: '#ffffff' }}>Watch our quick demos on <a href="https://youtube.com">YouTube</a>.</p>
       <p style={{ color: '#ffffff' }}><a href="/quick-start.pdf" download>Download Quick-Start PDF</a></p>

@@ -37,15 +37,14 @@ const MobileNav = () => {
             <p className="text-[26px] font-extrabold text-white">Saviour</p>
           </Link>
           <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
-            {sidebarLinks.map((link) => {
-              const isActive =
-                pathname === link.route ;
+            {sidebarLinks.map(({ route, label, icon: Icon }) => {
+              const isActive = pathname === route;
 
               return (
-                <SheetClose asChild key={link.route}>
+                <SheetClose asChild key={route}>
                   <Link
-                    href={link.route}
-                    key={link.label}
+                    href={route}
+                    key={label}
                     className={cn(
                       "flex gap-4 items-center p-4 rounded-lg w-full max-w-60",
                       {
@@ -53,13 +52,8 @@ const MobileNav = () => {
                       }
                     )}
                   >
-                    <Image
-                      src={link.imgURL}
-                      alt={link.label}
-                      width={20}
-                      height={20}
-                    />
-                    <p className="font-semibold">{link.label}</p>
+                    <Icon size={20} />
+                    <p className="font-semibold">{label}</p>
                   </Link>
                 </SheetClose>
               );
