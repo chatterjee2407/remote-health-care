@@ -75,7 +75,9 @@ import {
   CreditCard,
   HelpCircle,
   Settings,
-  PlusCircle
+  PlusCircle,
+  MapPin,
+  ShoppingCart
 } from 'lucide-react';
 
 export const sidebarLinks = [
@@ -114,6 +116,16 @@ export const sidebarLinks = [
     icon: HelpCircle,
     route: '/support',
     label: 'Help & Support',
+  },
+  {
+    icon: MapPin,
+    route: '/nearby-care',
+    label: 'Nearby Care',
+  },
+  {
+    icon: ShoppingCart,
+    route: '/pharmacy',
+    label: 'Pharmacy',
   },
   {
     icon: Settings,
